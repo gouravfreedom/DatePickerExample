@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DatePickerComponentExample.MainPage">
+
+    <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="20,0">
+        <Frame Padding="0" HasShadow="False" BorderColor="Gray" HeightRequest="50" HorizontalOptions="FillAndExpand">
+            <Grid ColumnDefinitions="*, 40, 40" ColumnSpacing="0">
+                <Label Padding="10,0" VerticalOptions="Center" Text="{Binding MentionedDate}" TextColor="{Binding TimeTextColor}" HorizontalTextAlignment="Start" FontSize="18">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CalenderCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <StackLayout Grid.Column="1" IsVisible="{Binding IsCancelVisible}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CancelCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="cross" HeightRequest="20" WidthRequest="20"/>
+                </StackLayout>
+                <StackLayout Grid.Column="2" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding CalenderCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                    <Image VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Source="cal" HeightRequest="20" WidthRequest="20"/>
+                </StackLayout>
+            </Grid>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
+
